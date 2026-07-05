@@ -18,6 +18,7 @@ yt-dlp
 Обновлен японский перевод (автор tsubasanouta).
 
 Обновлены библиотеки:
+	Detours v4.0.1-131-gd644ce9;
 	ffmpeg n8.2-dev-2181-g6f2f3755a0;
 	nanosvg git-48120e9.
 
