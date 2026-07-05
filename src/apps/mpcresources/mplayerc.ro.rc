@@ -183,11 +183,11 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Mergi la..."
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    LTEXT           "Introdu un cod de timp folosind formatul [hh:]mm:ss.ms pentru a sări la un timp specificat. Nu e nevoie să introduci separatorii în mod explicit.",IDC_STATIC,5,5,173,27
+    LTEXT           "Introdu un cod de timp folosind formatul [hh:]mm:ss.ms ([oo:]mm:ss.ms) pentru a sări la un timp specificat. Nu e nevoie să introduci separatorii în mod explicit.",IDC_STATIC,5,5,173,27
     LTEXT           "Timp",IDC_STATIC,10,42,35,8
     CONTROL         "00:00:00.000",IDC_EDIT1,"MfcMaskedEdit",WS_BORDER | WS_TABSTOP | 0x80,47,39,80,14
     DEFPUSHBUTTON   "Du-te!",IDC_OK1,131,39,50,14
-    LTEXT           "Introdu două numere pentru a sări la un cadru specificat, primul este numărul cadrului, al doilea este rata cadrelor.",IDC_STATIC,5,64,173,26
+    LTEXT           "Introdu două numere pentru a sări la un cadru specificat, primul este numărul cadrului, al doilea este rata de cadre (pe secundă).",IDC_STATIC,5,64,173,26
     LTEXT           "Cadru",IDC_STATIC,10,99,35,8
     EDITTEXT        IDC_EDIT2,47,96,81,14,ES_AUTOHSCROLL
     DEFPUSHBUTTON   "Du-te!",IDC_OK2,131,96,50,14
@@ -282,12 +282,12 @@ BEGIN
     LTEXT           "Numărul maxim de fișiere recente:",IDC_STATIC,129,47,122,8
     EDITTEXT        IDC_EDIT1,255,45,30,13,ES_RIGHT | ES_AUTOHSCROLL | ES_NUMBER
     CONTROL         "",IDC_SPIN1,"msctls_updown32",UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS | UDS_NOTHOUSANDS,275,45,12,13
-    CONTROL         "Reține poziția pe DVD",IDC_DVD_POS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,129,60,156,9
-    CONTROL         "Reține poziția în fișier",IDC_FILE_POS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,129,72,158,9
+    CONTROL         "Reține (Ține minte) poziția pe DVD",IDC_DVD_POS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,129,60,156,9
+    CONTROL         "Reține (Ține minte) poziția în fișier",IDC_FILE_POS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,129,72,158,9
     CONTROL         "Reține ultima alegere a panoramării și scanării",IDC_CHECK11,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,129,84,156,9
     CONTROL         "Reține lista de redare (playlistul) principal(ă)",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,129,96,156,9
     CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,129,108,158,1
-    CONTROL         "Afișează titlul pentru URL în fișierele recente",IDC_CHECK4,
+    CONTROL         "Afișează titlul pentru adresa URL în fișierele recente",IDC_CHECK4,
                     "Button",BS_AUTOCHECKBOX | BS_TOP | BS_MULTILINE | WS_TABSTOP,129,112,156,17
     GROUPBOX        "Altele",IDC_STATIC,124,135,167,55,WS_GROUP
     CONTROL         "Pictogramă în zona de notificare",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,129,147,156,9
@@ -357,7 +357,7 @@ BEGIN
     CONTROL         "Folosește un fir de execuţie secundar pentru a construi graficul filtrelor",IDC_CHECK7,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,167,276,9
     CONTROL         "Raportează pinii care eșuează să randeze",IDC_CHECK6,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,179,276,9
-    CONTROL         "Reține pistele selectate în lista de redare (în playlist)",IDC_CHECK8,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,191,276,9
+    CONTROL         "Reține (Ține minte) pistele selectate în lista de redare (în playlist)",IDC_CHECK8,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,191,276,9
     CONTROL         "Căutare rapidă (la cadru cheie)",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,209,264,9
     CONTROL         "Previne redarea videoclipului când este minimizat",IDC_CHECK5,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,221,280,9
@@ -813,10 +813,10 @@ BEGIN
     LTEXT           "Dublu clic",IDC_STATIC,10,49,60,8
     COMBOBOX        IDC_COMBO2,70,47,166,30,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     CONTROL         "Mută fereastra lângă zona video",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,65,133,10
-    CONTROL         "Enable long press speed-up",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,81,135,10
-    LTEXT           "Long press speed",IDC_STATIC,150,82,65,8
+    CONTROL         "Activează accelerarea la apăsarea lungă",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,81,135,10
+    LTEXT           "Viteza la apăsarea lungă",IDC_STATIC,150,82,65,8
     COMBOBOX        IDC_COMBO4,220,79,55,70,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    LTEXT           "Long press delay",IDC_STATIC,150,98,65,8
+    LTEXT           "Timpul de așteptare la apăsarea lungă",IDC_STATIC,150,98,65,8
     COMBOBOX        IDC_COMBO5,220,95,55,70,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     LTEXT           "Clic dreapta",IDC_STATIC,10,124,60,8
     COMBOBOX        IDC_COMBO3,70,121,166,30,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
@@ -942,7 +942,7 @@ BEGIN
     COMBOBOX        IDC_COMBO4,10,93,130,46,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     CONTROL         "Încarcă lista de redare (playlist-ul)",IDC_CHECK6,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,123,130,10
     GROUPBOX        "",IDC_STATIC,6,5,285,145
-    CONTROL         "Utilizează analizorul integrat pentru liste de redare YouTube",IDC_CHECK7,
+    CONTROL         "Utilizează analizorul integrat pentru liste de redare a YouTube",IDC_CHECK7,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,19,137,206,10
     CONTROL         "yt-dlp",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,4,74,10
     LTEXT           "Fișierul executabil:",IDC_STATIC,10,17,104,8
@@ -971,7 +971,7 @@ BEGIN
     LTEXT           "Parola:",IDC_STATIC,10,74,66,8
     COMBOBOX        IDC_COMBO1,79,56,129,56,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
     EDITTEXT        IDC_EDIT3,79,74,129,13,ES_PASSWORD | ES_AUTOHSCROLL
-    CONTROL         "Reține parola",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,79,92,129,9
+    CONTROL         "Reține parola (Ține minte parola)",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,79,92,129,9
 END
 
 IDD_PPAGEWEBSERVER DIALOGEX 0, 0, 296, 264
@@ -1680,7 +1680,7 @@ BEGIN
     BEGIN
         MENUITEM "Meniu și subtitrări",         ID_VIEW_CAPTIONMENU
         MENUITEM "Bară de &căutare",             ID_VIEW_SEEKER
-        MENUITEM "Cont&roale",             ID_VIEW_CONTROLS
+        MENUITEM "Cont&roale (Comenzi)",             ID_VIEW_CONTROLS
         MENUITEM "&Informații",          ID_VIEW_INFORMATION
         MENUITEM "S&tatistici",           ID_VIEW_STATISTICS
         MENUITEM "St&are",               ID_VIEW_STATUS
@@ -1757,9 +1757,9 @@ BEGIN
             MENUITEM "A-B (Marchează &B-ul)", ID_PLAY_REPEAT_AB_MARK_B
         END
         MENUITEM SEPARATOR
-        MENUITEM "&Mărește rata",       ID_PLAY_INCRATE
-        MENUITEM "&Micșorează rata",     ID_PLAY_DECRATE
-        MENUITEM "Resetează rata",            ID_PLAY_RESETRATE
+        MENUITEM "&Mărește rata de redare (Crește viteza)",       ID_PLAY_INCRATE
+        MENUITEM "&Micșorează rata de redare (Scade viteza)",     ID_PLAY_DECRATE
+        MENUITEM "Resetează rata de redare (Resetează viteza)",            ID_PLAY_RESETRATE
         MENUITEM SEPARATOR
         MENUITEM "&Filtre",                    ID_SUBMENU_FILTERS
         MENUITEM "Nuanțatoare (S&hadere)",                    ID_SUBMENU_SHADERS
@@ -1870,7 +1870,7 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "Meniu și subtitrări",               ID_VIEW_CAPTIONMENU
             MENUITEM "Bară de &căutare",                    ID_VIEW_SEEKER
-            MENUITEM "Cont&roale",                   ID_VIEW_CONTROLS
+            MENUITEM "Cont&roale (Comenzi)",                   ID_VIEW_CONTROLS
             MENUITEM "&Informații",                ID_VIEW_INFORMATION
             MENUITEM "St&atistici",                 ID_VIEW_STATISTICS
             MENUITEM "S&tare",                     ID_VIEW_STATUS
@@ -1949,7 +1949,7 @@ BEGIN
         BEGIN
             MENUITEM "Meniu și subtitrări",         ID_VIEW_CAPTIONMENU
             MENUITEM "Bară de &căutare",             ID_VIEW_SEEKER
-            MENUITEM "Cont&roale",             ID_VIEW_CONTROLS
+            MENUITEM "Cont&roale (Comenzi)",             ID_VIEW_CONTROLS
             MENUITEM "&Informații",          ID_VIEW_INFORMATION
             MENUITEM "S&tatistici",           ID_VIEW_STATISTICS
             MENUITEM "St&are",               ID_VIEW_STATUS
@@ -2018,16 +2018,16 @@ BEGIN
             MENUITEM "&Mergi la...",             ID_PLAY_GOTO
             POPUP "&Repetă"
             BEGIN
-                MENUITEM "Pentru &totdeauna", ID_REPEAT_FOREVER
+                MENUITEM "La nesfârșit (Pentru &totdeauna)", ID_REPEAT_FOREVER
                 MENUITEM SEPARATOR
                 MENUITEM "A-B (&Resetează-le)", ID_PLAY_REPEAT_AB
                 MENUITEM "A-B (Marchează &A-ul)", ID_PLAY_REPEAT_AB_MARK_A
                 MENUITEM "A-B (Marchează &B-ul)", ID_PLAY_REPEAT_AB_MARK_B
             END
             MENUITEM SEPARATOR
-            MENUITEM "&Mărește rata",       ID_PLAY_INCRATE
-            MENUITEM "&Micșorează rata",     ID_PLAY_DECRATE
-            MENUITEM "Resetează rata",            ID_PLAY_RESETRATE
+            MENUITEM "&Mărește rata de redare (Crește viteza)",       ID_PLAY_INCRATE
+            MENUITEM "&Micșorează rata de redare (Scade viteza)",     ID_PLAY_DECRATE
+            MENUITEM "Resetează rata de redare (Resetează viteza)",            ID_PLAY_RESETRATE
         END
         MENUITEM "&Navigare",                   ID_SUBMENU_NAVIGATE
         MENUITEM "&Favorite",                  ID_SUBMENU_FAVORITES
@@ -2866,7 +2866,7 @@ BEGIN
     IDS_AG_FRAMESTEP        "Deplasează cu un cadru"
     IDS_AG_FRAMESTEP_BACK   "Deplasează-te cu un cadru înapoi"
     IDS_AG_GO_TO            "Mergi la"
-    IDS_AG_INCREASE_RATE    "Mărește rata"
+    IDS_AG_INCREASE_RATE    "Mărește rata de redare (Crește viteza)"
 END
 
 STRINGTABLE
@@ -2910,8 +2910,8 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_AG_DECREASE_RATE    "Micșorează rata"
-    IDS_AG_RESET_RATE       "Resetează rata"
+    IDS_AG_DECREASE_RATE    "Micșorează rata de redare (Scade viteza)"
+    IDS_AG_RESET_RATE       "Resetează rata de redare (Resetează viteza)"
     IDS_AG_AUDIODELAY_PLUS  "Întârziere audio cu +10 ms"
     IDS_AG_AUDIODELAY_MINUS "Întârziere audio cu -10 ms"
     IDS_AG_JUMP_FORWARD_1   "Sari înainte (puțin)"
@@ -3098,7 +3098,7 @@ BEGIN
     IDS_MAINFRM_2           "Focalizare pierdută la: %s - %s"
     IDS_AG_SUBTITLES_SAVED  "Subtitrări salvate"
     IDS_MAINFRM_4           "Subtitrările nu pot fi salvate"
-    IDS_AG_FRAMERATE        "Rata cadrelor"
+    IDS_AG_FRAMERATE        "Rata de cadre (pe secundă)"
     IDS_MAINFRM_6           "desenate: %d, pierdute: %d"
     IDS_AG_FRAMES           "Cadre"
     IDS_AG_BUFFERS          "Buffere (Tampoane)"
@@ -3497,7 +3497,7 @@ BEGIN
     IDS_ARS_SAMPLERATE      "Rata de eșantionare:"
     IDS_ARS_CHANNELS        "Canalele:"
     IDS_ARS_WASAPI_METHOD   "Metoda WASAPI:"
-    IDS_ARS_DUMMY_CHANNELS  "Nu umple canalele când mixezi (amesteci)"
+    IDS_ARS_DUMMY_CHANNELS  "Nu umple canalele când mixezi (când amesteci)"
     IDS_ARS_PAUSE_KEEP_ACTIVE "Menține dispozitivul audio activ atunci când este întrerupt"
     IDS_ARS_TIP_BITEXACT_OUTPUT  "Dacă este posibil, sunetul va fi trimis în formatul original.\nAltfel, va fi folosit formatul specificat în setările de sistem."
 END

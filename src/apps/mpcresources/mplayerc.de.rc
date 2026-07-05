@@ -813,10 +813,10 @@ BEGIN
     LTEXT           "Doppelklick",IDC_STATIC,10,49,60,8
     COMBOBOX        IDC_COMBO2,70,47,166,30,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     CONTROL         "Fenster im Videobereich verschieben",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,65,133,10
-    CONTROL         "Enable long press speed-up",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,81,135,10
-    LTEXT           "Long press speed",IDC_STATIC,150,82,65,8
+    CONTROL         "Beschleunigung bei langem Drücken aktivieren",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,81,135,10
+    LTEXT           "Geschwindigkeit beim langen Drücken",IDC_STATIC,150,82,65,8
     COMBOBOX        IDC_COMBO4,220,79,55,70,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    LTEXT           "Long press delay",IDC_STATIC,150,98,65,8
+    LTEXT           "Verzögerung beim langen Drücken",IDC_STATIC,150,98,65,8
     COMBOBOX        IDC_COMBO5,220,95,55,70,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     LTEXT           "Rechtsklick",IDC_STATIC,10,124,60,8
     COMBOBOX        IDC_COMBO3,70,121,166,30,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP

@@ -1,4 +1,4 @@
-BEGIN DIALOGEX IDD_ABOUTBOX LINES 26
+﻿BEGIN DIALOGEX IDD_ABOUTBOX LINES 26
 3		"Despre"
 7		"MPC-BE"
 8		"Drepturi de autor © 2002-2026 - vezi fișierul Authors.txt"
@@ -366,14 +366,12 @@ BEGIN DIALOGEX IDD_PPAGEMISC LINES 36
 35		"Exportă"
 END
 
-BEGIN DIALOGEX IDD_PPAGEMOUSE LINES 17
+BEGIN DIALOGEX IDD_PPAGEMOUSE LINES 22
 5		"Butonul din stânga"
 6		"Clic"
 8		"Dacă nu s-a încărcat nimic, deschide fișierul recent"
 10		"Dublu clic"
 12		"Mută fereastra lângă zona video"
-13		"Clic dreapta"
-16		"Implicit"
 13		"Activează accelerarea la apăsarea lungă"
 14		"Viteza la apăsarea lungă"
 16		"Timpul de așteptare la apăsarea lungă"

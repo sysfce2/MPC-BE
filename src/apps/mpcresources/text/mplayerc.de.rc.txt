@@ -372,9 +372,9 @@ BEGIN DIALOGEX IDD_PPAGEMOUSE LINES 22
 8		"Wenn nichts geladen ist, die letzte Datei öffnen"
 10		"Doppelklick"
 12		"Fenster im Videobereich verschieben"
-13		"Enable long press speed-up"
-14		"Long press speed"
-16		"Long press delay"
+13		"Beschleunigung bei langem Drücken aktivieren"
+14		"Geschwindigkeit beim langen Drücken"
+16		"Verzögerung beim langen Drücken"
 18		"Rechtsklick"
 21		"Zurücksetzen"
 END
