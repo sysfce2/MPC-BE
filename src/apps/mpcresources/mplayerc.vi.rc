@@ -3111,7 +3111,7 @@ BEGIN
     IDS_ZOOM_AUTOFITLARGE   "Vừa khít tự động (chỉ cho tệp lớn hơn)"
     IDS_ADD_TO_PLAYLIST     "Thêm vào danh sách phát MPC-BE"
     IDS_OPEN_WITH_MPC       "Phát với MPC-BE"
-    IDS_CANNOT_CHANGE_FORMAT  "MPC-BE không đủ quyền để thay đổi liên kết định dạng tệp. Vui lòng nhấp vào nút \"Chỉnh sửa\" để lấy quyền quản trị viên."
+    IDS_CANNOT_CHANGE_FORMAT  "MPC-BE không đủ quyền để thay đổi liên kết định dạng tệp. Vui lòng nhấp vào nút ""Chỉnh sửa"" để lấy quyền quản trị viên."
     IDS_APP_DESCRIPTION     "Một trong những trình phát đa phương tiện mạnh mẽ và tùy biến nhất cho hệ điều hành Windows. Ban đầu được tạo bởi một nhà phát triển người Hungary tên là Gabest, phiên bản này có các tính năng bổ sung như chế độ toàn màn hình độc quyền và hỗ trợ tốt hơn cho Windows Vista/7."
     IDS_MAINFRM_12          "kênh"
     IDS_MAINFRM_13          "kênh"
@@ -3312,22 +3312,22 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_CMD_USAGE           "Cách dùng: mpc-be.exe \"pathname\" [tham số]"
-    IDS_CMD_PATHNAME        "\"pathname\"\tTệp chính hoặc thư mục cần tải (cho phép dùng\nký tự đại diện)"
+    IDS_CMD_USAGE           "Cách dùng: mpc-be.exe ""pathname"" [tham số]"
+    IDS_CMD_PATHNAME        """pathname""\tTệp chính hoặc thư mục cần tải (cho phép dùng\nký tự đại diện)"
     IDS_CMD_HELP            "/help /h /?\tHiển thị trợ giúp về các tham số dòng lệnh"
-    IDS_CMD_DUB             "/dub \"dubname\"\tTải thêm một tệp âm thanh"
+    IDS_CMD_DUB             "/dub ""dubname""\tTải thêm một tệp âm thanh"
 END
 
 STRINGTABLE
 BEGIN
-    IDS_CMD_DUBDELAY        "/dubdelay \"file\"\tTải thêm một tệp âm thanh bị trễ XXms\n(nếu tệp chứa \"...DELAY XXms...\")"
+    IDS_CMD_DUBDELAY        "/dubdelay ""file""\tTải thêm một tệp âm thanh bị trễ XXms\n(nếu tệp chứa ""...DELAY XXms..."")"
     IDS_CMD_D3DFS           "/d3dfs\tBắt đầu kết xuất ở chế độ toàn màn hình độc quyền"
-    IDS_CMD_SUB             "/sub \"subname\"\tTải thêm một tệp phụ đề"
-    IDS_CMD_FILTER          "/filter \"filtername\"\tTải bộ lọc DirectShow từ thư viện liên kết động\n(cho phép dùng ký tự đại diện)"
-    IDS_CMD_DVD             "/dvd\tChạy ở chế độ DVD, \"pathname\" là thư mục\nDVD (tùy chọn)"
+    IDS_CMD_SUB             "/sub ""subname""\tTải thêm một tệp phụ đề"
+    IDS_CMD_FILTER          "/filter ""filtername""\tTải bộ lọc DirectShow từ thư viện liên kết động\n(cho phép dùng ký tự đại diện)"
+    IDS_CMD_DVD             "/dvd\tChạy ở chế độ DVD, ""pathname"" là thư mục\nDVD (tùy chọn)"
     IDS_CMD_DVDPOS1         "/dvdpos T#C\tBắt đầu phát tại tiêu đề T, chương C"
     IDS_CMD_DVDPOS2         "/dvdpos T#hh:mm\tBắt đầu phát tại tiêu đề T, vị trí hh:mm:ss"
-    IDS_CMD_CD              "/cd\tTải tất cả các bản nhạc của một đĩa CD hoặc (S)VCD,\n\"pathname\" là đường dẫn ổ đĩa (tùy chọn)"
+    IDS_CMD_CD              "/cd\tTải tất cả các bản nhạc của một đĩa CD hoặc (S)VCD,\n""pathname"" là đường dẫn ổ đĩa (tùy chọn)"
     IDS_CMD_OPEN            "/open\tMở tệp, không tự động bắt đầu phát"
     IDS_CMD_PLAY            "/play\tBắt đầu phát tệp ngay khi trình phát được\nkhởi chạy"
     IDS_CMD_CLOSE           "/close\tĐóng trình phát sau khi phát xong (chỉ hoạt động khi\ndùng với /play)"
@@ -3335,7 +3335,7 @@ BEGIN
     IDS_CMD_FULLSCREEN      "/fullscreen\tBắt đầu ở chế độ toàn màn hình"
     IDS_CMD_MINIMIZED       "/minimized\tBắt đầu ở chế độ thu nhỏ"
     IDS_CMD_NEW             "/new\tSử dụng một phiên bản mới của trình phát"
-    IDS_CMD_ADD             "/add\tThêm \"pathname\" vào danh sách phát, có thể kết hợp\nvới /open và /play"
+    IDS_CMD_ADD             "/add\tThêm ""pathname"" vào danh sách phát, có thể kết hợp\nvới /open và /play"
 END
 
 STRINGTABLE
@@ -3346,11 +3346,11 @@ BEGIN
     IDS_CMD_REGPL           "/regpl\tTạo liên kết tệp cho các tệp danh sách phát"
     IDS_CMD_REGALL          "/regall\tTạo liên kết tệp cho tất cả các loại tệp được hỗ trợ"
     IDS_CMD_UNREGALL        "/unregall\tXóa tất cả liên kết tệp"
-    IDS_CMD_START           "/start ms\tBắt đầu phát tại \"ms\" (= mili giây)"
+    IDS_CMD_START           "/start ms\tBắt đầu phát tại ""ms"" (= mili giây)"
     IDS_CMD_STARTPOS        "/startpos hh:mm:ss\tBắt đầu phát tại vị trí hh:mm:ss"
     IDS_CMD_FIXEDSIZE       "/fixedsize w,h\tĐặt kích thước cửa sổ cố định"
     IDS_CMD_MONITOR         "/monitor N\tBắt đầu trình phát trên màn hình N, với N bắt đầu từ 1"
-    IDS_CMD_AUDIORENDERER   "/audiorenderer \"name\"\tBắt đầu sử dụng audiorenderer, trong đó \"name\" là tên\ncủa trình kết xuất âm thanh (xem cài đặt \"Âm thanh\")"
+    IDS_CMD_AUDIORENDERER   "/audiorenderer ""name""\tBắt đầu sử dụng audiorenderer, trong đó ""name"" là tên\ncủa trình kết xuất âm thanh (xem cài đặt ""Âm thanh"")"
     IDS_CMD_VOLUME          "/volume N\tĐặt âm lượng, với N nằm trong khoảng từ 0 đến 100"
     IDS_CMD_CLIPBOARD       "/clipboard\tMở đường dẫn/liên kết từ bảng nhớ tạm"
     IDS_CMD_DEVICE          "/device\tMở thiết bị video mặc định"
@@ -3374,7 +3374,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_AVISPLITTER_NON_INTERLEAVED "Hỗ trợ tệp xen kẽ \"xấu\""
+    IDS_AVISPLITTER_NON_INTERLEAVED "Hỗ trợ tệp xen kẽ ""xấu"""
     IDS_AVISPLITTER_REINDEX_BROKEN "Lập chỉ mục lại các tệp bị hỏng"
 END
 
@@ -3463,7 +3463,7 @@ STRINGTABLE
 BEGIN
     IDS_MPEG2_BRIGHTNESS    "Độ sáng"
     IDS_MPEG2_RESET         "Đặt lại"
-    IDS_MPEG2_NOTE1         "Lưu ý: Sử dụng định dạng đầu ra không phẳng, khử xen kẽ bob, hoặc điều chỉnh thuộc tính màu sắc có thể làm giảm hiệu suất. Bộ khử xen kẽ \"Tự động\" sẽ chuyển sang \"Trộn\" khi cần thiết."
+    IDS_MPEG2_NOTE1         "Lưu ý: Sử dụng định dạng đầu ra không phẳng, khử xen kẽ bob, hoặc điều chỉnh thuộc tính màu sắc có thể làm giảm hiệu suất. Bộ khử xen kẽ ""Tự động"" sẽ chuyển sang ""Trộn"" khi cần thiết."
     IDS_MPEG2_CONTRAST      "Độ tương phản"
     IDS_MPEG2_HUE           "Sắc độ"
     IDS_MPEG2_SATURATION    "Độ bão hòa"
