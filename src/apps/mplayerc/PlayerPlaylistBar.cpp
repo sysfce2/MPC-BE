@@ -825,6 +825,7 @@ BOOL CPlayerPlaylistBar::Create(CWnd* pParentWnd, UINT defDockBarID)
 		m_FilterEdit.SetTextColor(::GetSysColor(COLOR_WINDOWTEXT));
 	}
 	m_FilterEdit.SetSel(0, 0);
+	SHAutoComplete(m_FilterEdit, SHACF_AUTOAPPEND_FORCE_OFF | SHACF_AUTOSUGGEST_FORCE_OFF);
 
 	ScaleFontInternal();
 
