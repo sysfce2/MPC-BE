@@ -1,5 +1,5 @@
 /*
- * (C) 2012-2023 see Authors.txt
+ * (C) 2012-2026 see Authors.txt
  *
  * This file is part of MPC-BE.
  *
@@ -22,16 +22,16 @@
 #include "MainFrm.h"
 #include "PlayerPreView.h"
 
-static COLORREF RGBFill(int r1, int g1, int b1, int r2, int g2, int b2, int i, int k)
+// CPrevView
+
+COLORREF CPreView::RGBFill(const t_color& c, const int i, const int k)
 {
-	const int r = r1 + MulDiv(i, r2 - r1, k);
-	const int g = g1 + MulDiv(i, g2 - g1, k);
-	const int b = b1 + MulDiv(i, b2 - b1, k);
+	const int r = c.R1 + MulDiv(i, c.R2 - c.R1, k);
+	const int g = c.G1 + MulDiv(i, c.G2 - c.G1, k);
+	const int b = c.B1 + MulDiv(i, c.B2 - c.B1, k);
 
 	return RGB(r, g, b);
 }
-
-// CPrevView
 
 CPreView::CPreView(CMainFrame* pMainFrame)
 	: m_pMainFrame(pMainFrame)
@@ -137,35 +137,35 @@ void CPreView::OnPaint()
 	int i, k;
 
 	for(i = 0, k = w; i < k; i++) {
-		mdc.SetPixelV(i, 0, RGBFill(m_cr2.R1, m_cr2.G1, m_cr2.B1, m_cr2.R2, m_cr2.G2, m_cr2.B2, i, k));
+		mdc.SetPixelV(i, 0, RGBFill(m_cr2, i, k));
 	}
 
 	for(i = rcBar.left + m_border, k = w - m_border; i < k; i++) {
-		mdc.SetPixelV(i, m_caption, RGBFill(m_cr3.R1, m_cr3.G1, m_cr3.B1, m_cr3.R2, m_cr3.G2, m_cr3.B2, i, k));
+		mdc.SetPixelV(i, m_caption, RGBFill(m_cr3, i, k));
 	}
 
 	for(i = rcBar.left + m_border, k = w - m_border; i < k; i++) {
-		mdc.SetPixelV(i, rcBar.bottom - m_border - 1, RGBFill(m_cr4.R1, m_cr4.G1, m_cr4.B1, m_cr4.R2, m_cr4.G2, m_cr4.B2, i, k));
+		mdc.SetPixelV(i, rcBar.bottom - m_border - 1, RGBFill(m_cr4, i, k));
 	}
 
 	for(i = 0, k = w; i < k; i++) {
-		mdc.SetPixelV(i, rcBar.bottom - 1, RGBFill(m_cr5.R1, m_cr5.G1, m_cr5.B1, m_cr5.R2, m_cr5.G2, m_cr5.B2, i, k));
+		mdc.SetPixelV(i, rcBar.bottom - 1, RGBFill(m_cr5, i, k));
 	}
 
 	for(i = 0, k = h - 1; i < k; i++) {
-		mdc.SetPixelV(0, i, RGBFill(m_cr6.R1, m_cr6.G1, m_cr6.B1, m_cr6.R2, m_cr6.G2, m_cr6.B2, i, k));
+		mdc.SetPixelV(0, i, RGBFill(m_cr6, i, k));
 	}
 
 	for(i = m_caption, k = h - m_border; i < k; i++) {
-		mdc.SetPixelV(m_border, i, RGBFill(m_cr7.R1, m_cr7.G1, m_cr7.B1, m_cr7.R2, m_cr7.G2, m_cr7.B2, i, k));
+		mdc.SetPixelV(m_border, i, RGBFill(m_cr7, i, k));
 	}
 
 	for(i = m_caption, k = h - m_border; i < k; i++) {
-		mdc.SetPixelV(rcBar.right - m_border - 1, i, RGBFill(m_cr8.R1, m_cr8.G1, m_cr8.B1, m_cr8.R2, m_cr8.G2, m_cr8.B2, i, k));
+		mdc.SetPixelV(rcBar.right - m_border - 1, i, RGBFill(m_cr8, i, k));
 	}
 
 	for(i = 0, k = h ; i < k; i++) {
-		mdc.SetPixelV(rcBar.right - 1, i, RGBFill(m_cr9.R1, m_cr9.G1, m_cr9.B1, m_cr9.R2, m_cr9.G2, m_cr9.B2, i, k));
+		mdc.SetPixelV(rcBar.right - 1, i, RGBFill(m_cr9, i, k));
 	}
 
 	// text
