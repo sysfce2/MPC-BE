@@ -175,7 +175,7 @@ void CPreView::OnPaint()
 	rtime.bottom = m_caption;
 	mdc.SetBkMode(TRANSPARENT);
 	mdc.SetTextColor(m_crText);
-	mdc.DrawTextW(m_tooltipstr, m_tooltipstr.GetLength(), &rtime, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+	mdc.DrawTextW(m_tooltipstr, m_tooltipstr.GetLength(), &rtime, DT_CENTER | DT_VCENTER | DT_SINGLELINE | DT_END_ELLIPSIS | DT_NOPREFIX);
 
 	dc.ExcludeClipRect(m_videorect);
 	dc.BitBlt(0, 0, w, h, &mdc, 0, 0, SRCCOPY);
