@@ -22,13 +22,18 @@
 #include "MainFrm.h"
 #include "PlayerPreView.h"
 
+int divRoundClosest(const int n, const int d)
+{
+	return ((n < 0 == d < 0) ? (n + d / 2) : (n - d / 2)) / d;
+}
+
 // CPrevView
 
 COLORREF CPreView::RGBFill(const t_color& c, const int i, const int k)
 {
-	const int r = c.R1 + MulDiv(i, c.R2 - c.R1, k);
-	const int g = c.G1 + MulDiv(i, c.G2 - c.G1, k);
-	const int b = c.B1 + MulDiv(i, c.B2 - c.B1, k);
+	const int r = c.R1 + divRoundClosest(i * (c.R2 - c.R1), k);
+	const int g = c.G1 + divRoundClosest(i * (c.G2 - c.G1), k);
+	const int b = c.B1 + divRoundClosest(i * (c.B2 - c.B1), k);
 
 	return RGB(r, g, b);
 }
