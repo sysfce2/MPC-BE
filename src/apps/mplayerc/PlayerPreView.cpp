@@ -50,9 +50,9 @@ BOOL CPreView::SetWindowTextW(LPCWSTR lpString)
 	CRect rect;
 	GetClientRect(&rect);
 
-	rect.bottom = m_caption;
-	rect.left += 10;
-	rect.right -= 10;
+	rect.bottom = rect.top + m_caption;
+	rect.left  += m_border;
+	rect.right -= m_border;
 
 	InvalidateRect(rect);
 
