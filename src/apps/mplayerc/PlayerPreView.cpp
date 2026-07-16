@@ -120,10 +120,10 @@ void CPreView::OnPaint()
 {
 	CPaintDC dc(this);
 
-	CRect rcBar;
-	GetClientRect(&rcBar);
-	const int w = rcBar.Width();
-	const int h = rcBar.Height();
+	CRect rc;
+	GetClientRect(&rc);
+	const int w = rc.Width();
+	const int h = rc.Height();
 
 	CDC mdc;
 	mdc.CreateCompatibleDC(&dc);
@@ -145,16 +145,16 @@ void CPreView::OnPaint()
 		mdc.SetPixelV(i, 0, RGBFill(m_cr2, i, k));
 	}
 
-	for(i = rcBar.left + m_border, k = w - m_border; i < k; i++) {
+	for(i = rc.left + m_border, k = w - m_border; i < k; i++) {
 		mdc.SetPixelV(i, m_caption, RGBFill(m_cr3, i, k));
 	}
 
-	for(i = rcBar.left + m_border, k = w - m_border; i < k; i++) {
-		mdc.SetPixelV(i, rcBar.bottom - m_border - 1, RGBFill(m_cr4, i, k));
+	for(i = rc.left + m_border, k = w - m_border; i < k; i++) {
+		mdc.SetPixelV(i, rc.bottom - m_border - 1, RGBFill(m_cr4, i, k));
 	}
 
 	for(i = 0, k = w; i < k; i++) {
-		mdc.SetPixelV(i, rcBar.bottom - 1, RGBFill(m_cr5, i, k));
+		mdc.SetPixelV(i, rc.bottom - 1, RGBFill(m_cr5, i, k));
 	}
 
 	for(i = 0, k = h - 1; i < k; i++) {
@@ -166,18 +166,16 @@ void CPreView::OnPaint()
 	}
 
 	for(i = m_caption, k = h - m_border; i < k; i++) {
-		mdc.SetPixelV(rcBar.right - m_border - 1, i, RGBFill(m_cr8, i, k));
+		mdc.SetPixelV(rc.right - m_border - 1, i, RGBFill(m_cr8, i, k));
 	}
 
 	for(i = 0, k = h ; i < k; i++) {
-		mdc.SetPixelV(rcBar.right - 1, i, RGBFill(m_cr9, i, k));
+		mdc.SetPixelV(rc.right - 1, i, RGBFill(m_cr9, i, k));
 	}
 
 	// text
 	mdc.SelectObject(&m_font);
-	CRect rtime(rcBar);
-	rtime.top = 0;
-	rtime.bottom = m_caption;
+	CRect rtime(rc.left + m_border, rc.top, rc.right - m_border, rc.top + m_caption);
 	mdc.SetBkMode(TRANSPARENT);
 	mdc.SetTextColor(m_crText);
 	mdc.DrawTextW(m_tooltipstr, m_tooltipstr.GetLength(), &rtime, DT_CENTER | DT_VCENTER | DT_SINGLELINE | DT_END_ELLIPSIS | DT_NOPREFIX);
@@ -247,79 +245,64 @@ void CPreView::SetColor()
 	if (bUseDarkTheme) {
 		ThemeRGB(95, 100, 105, m_cr1.R1, m_cr1.G1, m_cr1.B1);
 		ThemeRGB(25, 30, 35, m_cr1.R2, m_cr1.G2, m_cr1.B2);
-	} else {
+
+		ThemeRGB(145, 140, 145, m_cr2.R1, m_cr2.G1, m_cr2.B1);
+		ThemeRGB(115, 120, 125, m_cr2.R2, m_cr2.G2, m_cr2.B2);
+
+		ThemeRGB(15, 20, 25, m_cr3.R1, m_cr3.G1, m_cr3.B1);
+		ThemeRGB(55, 60, 65, m_cr3.R2, m_cr3.G2, m_cr3.B2);
+
+		ThemeRGB(35, 40, 45, m_cr4.R1, m_cr4.G1, m_cr4.B1);
+		ThemeRGB(55, 60, 65, m_cr4.R2, m_cr4.G2, m_cr4.B2);
+
+		ThemeRGB(0, 5, 10, m_cr5.R1, m_cr5.G1, m_cr5.B1);
+		ThemeRGB(10, 15, 20, m_cr5.R2, m_cr5.G2, m_cr5.B2);
+
+		ThemeRGB(145, 150, 155, m_cr6.R1, m_cr6.G1, m_cr6.B1);
+		ThemeRGB(45, 50, 55, m_cr6.R2, m_cr6.G2, m_cr6.B2);
+
+		ThemeRGB(55, 60, 65, m_cr7.R1, m_cr7.G1, m_cr7.B1);
+		ThemeRGB(15, 20, 25, m_cr7.R2, m_cr7.G2, m_cr7.B2);
+
+		ThemeRGB(105, 110, 115, m_cr8.R1, m_cr8.G1, m_cr8.B1);
+		ThemeRGB(55, 60, 65, m_cr8.R2, m_cr8.G2, m_cr8.B2);
+
+		ThemeRGB(65, 70, 75, m_cr9.R1, m_cr9.G1, m_cr9.B1);
+		ThemeRGB(5, 10, 15, m_cr9.R2, m_cr9.G2, m_cr9.B2);
+	}
+	else {
 		m_cr1.R1 = m_cr1.R2 = GetRValue(bg);
 		m_cr1.G1 = m_cr1.G2 = GetGValue(bg);
 		m_cr1.B1 = m_cr1.B2 = GetBValue(bg);
-	}
 
-	if (bUseDarkTheme) {
-		ThemeRGB(145, 140, 145, m_cr2.R1, m_cr2.G1, m_cr2.B1);
-		ThemeRGB(115, 120, 125, m_cr2.R2, m_cr2.G2, m_cr2.B2);
-	} else {
 		m_cr2.R1 = m_cr2.R2 = GetRValue(light);
 		m_cr2.G1 = m_cr2.G2 = GetGValue(light);
 		m_cr2.B1 = m_cr2.B2 = GetBValue(light);
-	}
 
-	if (bUseDarkTheme) {
-		ThemeRGB(15, 20, 25, m_cr3.R1, m_cr3.G1, m_cr3.B1);
-		ThemeRGB(55, 60, 65, m_cr3.R2, m_cr3.G2, m_cr3.B2);
-	} else {
 		m_cr3.R1 = m_cr3.R2 = GetRValue(shadow);
 		m_cr3.G1 = m_cr3.G2 = GetGValue(shadow);
 		m_cr3.B1 = m_cr3.B2 = GetBValue(shadow);
-	}
 
-	if (bUseDarkTheme) {
-		ThemeRGB(35, 40, 45, m_cr4.R1, m_cr4.G1, m_cr4.B1);
-		ThemeRGB(55, 60, 65, m_cr4.R2, m_cr4.G2, m_cr4.B2);
-	} else {
 		m_cr4.R1 = m_cr4.R2 = GetRValue(light);
 		m_cr4.G1 = m_cr4.G2 = GetGValue(light);
 		m_cr4.B1 = m_cr4.B2 = GetBValue(light);
-	}
 
-	if (bUseDarkTheme) {
-		ThemeRGB(0, 5, 10, m_cr5.R1, m_cr5.G1, m_cr5.B1);
-		ThemeRGB(10, 15, 20, m_cr5.R2, m_cr5.G2, m_cr5.B2);
-	} else {
 		m_cr5.R1 = m_cr5.R2 = GetRValue(shadow);
 		m_cr5.G1 = m_cr5.G2 = GetGValue(shadow);
 		m_cr5.B1 = m_cr5.B2 = GetBValue(shadow);
-	}
 
-	if (bUseDarkTheme) {
-		ThemeRGB(145, 150, 155, m_cr6.R1, m_cr6.G1, m_cr6.B1);
-		ThemeRGB(45, 50, 55, m_cr6.R2, m_cr6.G2, m_cr6.B2);
-	} else {
 		m_cr6.R1 = m_cr6.R2 = GetRValue(light);
 		m_cr6.G1 = m_cr6.G2 = GetGValue(light);
 		m_cr6.B1 = m_cr6.B2 = GetBValue(light);
-	}
 
-	if (bUseDarkTheme) {
-		ThemeRGB(55, 60, 65, m_cr7.R1, m_cr7.G1, m_cr7.B1);
-		ThemeRGB(15, 20, 25, m_cr7.R2, m_cr7.G2, m_cr7.B2);
-	} else {
 		m_cr7.R1 = m_cr7.R2 = GetRValue(shadow);
 		m_cr7.G1 = m_cr7.G2 = GetGValue(shadow);
 		m_cr7.B1 = m_cr7.B2 = GetBValue(shadow);
-	}
 
-	if (bUseDarkTheme) {
-		ThemeRGB(105, 110, 115, m_cr8.R1, m_cr8.G1, m_cr8.B1);
-		ThemeRGB(55, 60, 65, m_cr8.R2, m_cr8.G2, m_cr8.B2);
-	} else {
 		m_cr8.R1 = m_cr8.R2 = GetRValue(light);
 		m_cr8.G1 = m_cr8.G2 = GetGValue(light);
 		m_cr8.B1 = m_cr8.B2 = GetBValue(light);
-	}
 
-	if (bUseDarkTheme) {
-		ThemeRGB(65, 70, 75, m_cr9.R1, m_cr9.G1, m_cr9.B1);
-		ThemeRGB(5, 10, 15, m_cr9.R2, m_cr9.G2, m_cr9.B2);
-	} else {
 		m_cr9.R1 = m_cr9.R2 = GetRValue(shadow);
 		m_cr9.G1 = m_cr9.G2 = GetGValue(shadow);
 		m_cr9.B1 = m_cr9.B2 = GetBValue(shadow);
