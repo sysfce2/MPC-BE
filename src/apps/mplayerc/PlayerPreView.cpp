@@ -50,9 +50,10 @@ BOOL CPreView::SetWindowTextW(LPCWSTR lpString)
 	CRect rect;
 	GetClientRect(&rect);
 
-	rect.bottom = rect.top + m_caption;
 	rect.left  += m_border;
+	rect.top   += 1;
 	rect.right -= m_border;
+	rect.bottom = rect.top + m_caption - 1;
 
 	InvalidateRect(rect);
 
@@ -170,10 +171,10 @@ void CPreView::OnPaint()
 
 	// text
 	dc.SelectObject(&m_font);
-	CRect rtime(rc.left + m_border, rc.top, rc.right - m_border, rc.top + m_caption);
+	CRect rtext(rc.left + m_border, rc.top + 1, rc.right - m_border, rc.top + m_caption - 1);
 	dc.SetBkMode(TRANSPARENT);
 	dc.SetTextColor(m_crText);
-	dc.DrawTextW(m_tooltipstr, m_tooltipstr.GetLength(), &rtime, DT_CENTER | DT_VCENTER | DT_SINGLELINE | DT_END_ELLIPSIS | DT_NOPREFIX);
+	dc.DrawTextW(m_tooltipstr, m_tooltipstr.GetLength(), &rtext, DT_CENTER | DT_VCENTER | DT_SINGLELINE | DT_END_ELLIPSIS | DT_NOPREFIX);
 }
 
 void CPreView::OnShowWindow(BOOL bShow, UINT nStatus)
