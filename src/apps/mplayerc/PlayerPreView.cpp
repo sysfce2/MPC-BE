@@ -121,60 +121,71 @@ void CPreView::OnPaint()
 {
 	CPaintDC dc(this);
 
-	dc.ExcludeClipRect(m_videorect);
-
 	CRect rc;
 	GetClientRect(&rc);
 	const int w = rc.Width();
 	const int h = rc.Height();
+
+	CDC mdc;
+	mdc.CreateCompatibleDC(&dc);
+	CBitmap bm;
+	bm.CreateCompatibleBitmap(&dc, w, h);
+	CBitmap* pOldBm = mdc.SelectObject(&bm);
 
 	TRIVERTEX vert[2] = {
 		{ 0, 0, COLOR16(m_cr1.R1 * 256), COLOR16(m_cr1.G1 * 256), COLOR16(m_cr1.B1 * 256), 0 },
 		{ w, h, COLOR16(m_cr1.R2 * 256), COLOR16(m_cr1.G2 * 256), COLOR16(m_cr1.B2 * 256), 0 }
 	};
 	GRADIENT_RECT GradientRect = { 0 , 1 };
-	dc.GradientFill(vert, 2, &GradientRect, 1, GRADIENT_FILL_RECT_V);
+	mdc.GradientFill(vert, 2, &GradientRect, 1, GRADIENT_FILL_RECT_V);
 
 	int i, k;
 
 	for(i = 0, k = w; i < k; i++) {
-		dc.SetPixelV(i, 0, RGBFill(m_cr2, i, k));
+		mdc.SetPixelV(i, 0, RGBFill(m_cr2, i, k));
 	}
 
 	for(i = rc.left + m_border, k = w - m_border; i < k; i++) {
-		dc.SetPixelV(i, m_caption, RGBFill(m_cr3, i, k));
+		mdc.SetPixelV(i, m_caption, RGBFill(m_cr3, i, k));
 	}
 
 	for(i = rc.left + m_border, k = w - m_border; i < k; i++) {
-		dc.SetPixelV(i, rc.bottom - m_border - 1, RGBFill(m_cr4, i, k));
+		mdc.SetPixelV(i, rc.bottom - m_border - 1, RGBFill(m_cr4, i, k));
 	}
 
 	for(i = 0, k = w; i < k; i++) {
-		dc.SetPixelV(i, rc.bottom - 1, RGBFill(m_cr5, i, k));
+		mdc.SetPixelV(i, rc.bottom - 1, RGBFill(m_cr5, i, k));
 	}
 
 	for(i = 0, k = h - 1; i < k; i++) {
-		dc.SetPixelV(0, i, RGBFill(m_cr6, i, k));
+		mdc.SetPixelV(0, i, RGBFill(m_cr6, i, k));
 	}
 
 	for(i = m_caption, k = h - m_border; i < k; i++) {
-		dc.SetPixelV(m_border, i, RGBFill(m_cr7, i, k));
+		mdc.SetPixelV(m_border, i, RGBFill(m_cr7, i, k));
 	}
 
 	for(i = m_caption, k = h - m_border; i < k; i++) {
-		dc.SetPixelV(rc.right - m_border - 1, i, RGBFill(m_cr8, i, k));
+		mdc.SetPixelV(rc.right - m_border - 1, i, RGBFill(m_cr8, i, k));
 	}
 
 	for(i = 0, k = h ; i < k; i++) {
-		dc.SetPixelV(rc.right - 1, i, RGBFill(m_cr9, i, k));
+		mdc.SetPixelV(rc.right - 1, i, RGBFill(m_cr9, i, k));
 	}
 
 	// text
-	dc.SelectObject(&m_font);
+	mdc.SelectObject(&m_font);
 	CRect rtext(rc.left + m_border, rc.top + 1, rc.right - m_border, rc.top + m_caption - 1);
-	dc.SetBkMode(TRANSPARENT);
-	dc.SetTextColor(m_crText);
-	dc.DrawTextW(m_tooltipstr, m_tooltipstr.GetLength(), &rtext, DT_CENTER | DT_VCENTER | DT_SINGLELINE | DT_END_ELLIPSIS | DT_NOPREFIX);
+	mdc.SetBkMode(TRANSPARENT);
+	mdc.SetTextColor(m_crText);
+	mdc.DrawTextW(m_tooltipstr, m_tooltipstr.GetLength(), &rtext, DT_CENTER | DT_VCENTER | DT_SINGLELINE | DT_END_ELLIPSIS | DT_NOPREFIX);
+
+	dc.ExcludeClipRect(m_videorect);
+	dc.BitBlt(0, 0, w, h, &mdc, 0, 0, SRCCOPY);
+
+	mdc.SelectObject(pOldBm);
+	bm.DeleteObject();
+	mdc.DeleteDC();
 }
 
 void CPreView::OnShowWindow(BOOL bShow, UINT nStatus)
