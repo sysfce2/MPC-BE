@@ -2,6 +2,9 @@
 
 1.9.0.x dev
 =============================
+MPCVideoDec
+Fixed hardware decoding for older Intel graphics.
+
 yt-dlp
 Fixed detection of the VP9 video codec for some video hosting services.
 Protocol "http_dash_segments" is not supported.
@@ -11,6 +14,9 @@ Fixed remembering the title of the entry in the playlist for URLs processed by y
 Fixed getting icon for file properties window when path length is 260 or more characters.
 The "Use Blur Behind effect" setting has been removed because it does not work correctly.
 Added the ability to speed up video by long-pressing the left mouse button.
+Fixed text in the file name field in saved thumbnails.
+Added the ability to use the Ctrl+BackSpace keyboard shortcut to delete the last word in the command, history, and playlist filter fields.
+Various interface fixes.
 
 Added Vietnamese translation (by vuanhvu11982-afk).
 Updated German translation (by Klaus1189).
